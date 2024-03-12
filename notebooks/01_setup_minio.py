@@ -17,8 +17,18 @@ if __name__ == "__main__":
 
     s3_client.delete_object(Bucket="data", Key="data.csv")
     s3_client.delete_object(Bucket="data", Key="data.parquet")
+    s3_client.delete_object(Bucket="data", Key="data_partial.parquet")
+    s3_client.delete_object(Bucket="data", Key="data_brotli.parquet")
+    s3_client.delete_object(Bucket="data", Key="data_gzip.parquet")
+    s3_client.delete_object(Bucket="data", Key="data_row.parquet")
     s3_client.delete_bucket(Bucket="data")
 
     s3_client.create_bucket(Bucket="data")
     s3_client.upload_file("data/input/data.csv", "data", "data.csv")
     s3_client.upload_file("data/input/data.parquet", "data", "data.parquet")
+    s3_client.upload_file("data/input/data_gzip.parquet", "data", "data_gzip.parquet")
+    s3_client.upload_file(
+        "data/input/data_brotli.parquet", "data", "data_brotli.parquet"
+    )
+    s3_client.upload_file("data/input/data_row.parquet", "data", "data_row.parquet")
+    s3_client.upload_file("data/input/data.parquet", "data", "data_partial.parquet")
