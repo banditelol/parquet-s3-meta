@@ -161,3 +161,6 @@ cython_debug/
 
 data/minio/
 data/input/
+data/netshoot/
+.DS_Store
+
