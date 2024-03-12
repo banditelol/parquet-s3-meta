@@ -39,3 +39,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Email: adityarputra@gmail.com
 - Twitter: [@banditelolRP](https://twitter.com/banditelolRP)
+
+## References
+
+- `parquet-python` [a pure python implementation of parquet format](https://github.com/jcrobak/parquet-python/blob/master/parquet/encoding.py)
