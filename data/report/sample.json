@@ -1,0 +1,33 @@
+{
+    "version": 2,
+    "schema": {
+        "type": 6,
+        "type_length": null,
+        "repetition_type": 1,
+        "name": "name",
+        "num_children": null,
+        "converted_type": 0,
+        "scale": null,
+        "precision": null,
+        "field_id": null,
+    },
+    "row_group_col": {
+        "file_path": null,
+        "file_offset": 619735,
+        "meta_data": {
+            "type": 6,
+            "encodings": [0, 3, 8],
+            "path_in_schema": ["name"],
+            "codec": 6,
+            "num_values": 100000,
+            "total_uncompressed_size": 1456846,
+            "total_compressed_size": 619731,
+            "key_value_metadata": null,
+            "data_page_offset": 4,
+            "index_page_offset": null,
+            "dictionary_page_offset": null,
+            "statistics": null,
+            "encoding_stats": null,
+        },
+    },
+}
