@@ -11,3 +11,11 @@ services:
             - MINIO_ROOT_USER=${MINIO_ROOT_USER:-minioadmin}
             - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD:-minioadminpassword}
         command: server /data --console-address ":9001"
+    tcpdump:
+        image: nicolaka/netshoot
+        depends_on:
+            - minio
+        command: tcpdump -A -i eth0 port 9000 -w /data/minio.pcap
+        network_mode: service:minio
+        volumes:
+            - $PWD/data/netshoot:/data
