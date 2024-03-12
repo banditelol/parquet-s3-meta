@@ -24,3 +24,6 @@ if __name__ == "__main__":
         "data/input/data.csv",
     )
     df.write_parquet("data/input/data.parquet")
+    df.write_parquet("data/input/data_row.parquet", row_group_size=100)
+    df.write_parquet("data/input/data_gzip.parquet", compression="gzip")
+    df.write_parquet("data/input/data_brotli.parquet", compression="brotli")
