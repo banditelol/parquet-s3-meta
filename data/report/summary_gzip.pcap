@@ -1,0 +1,34 @@
+HEAD /data/data_gzip.parquet HTTP/1.1
+...
+
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Length: 7916718
+...
+
+GET /data/data_gzip.parquet HTTP/1.1
+range: bytes=3455318-3520853
+...
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 65536
+Content-Range: bytes 3455318-3520853/3520854
+...
+
+GET /data/data_gzip.parquet HTTP/1.1
+range: bytes=2720966-3519719
+...
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 798754
+...
+
+GET /data/data_gzip.parquet HTTP/1.1
+range: bytes=4-3519719
+...
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 3519716

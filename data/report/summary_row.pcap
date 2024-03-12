@@ -1,0 +1,36 @@
+HEAD /data/data_row.parquet HTTP/1.1
+...
+
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Length: 7916718
+...
+
+GET /data/data_row.parquet HTTP/1.1
+range: bytes=7851182-7916717
+...
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 65536
+...
+
+# 1000 times getting each row group e.g. the following to get several columns
+GET /data/data_row.parquet HTTP/1.1
+range: bytes=7673672-7916717
+...
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 243046
+...
+
+# But we can get the following to get the first 5 rows
+GET /data/data_row.parquet HTTP/1.1
+range: bytes=4-7548
+...
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 7545
+...

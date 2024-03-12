@@ -1,0 +1,34 @@
+HEAD /data/data_brotli.parquet HTTP/1.1
+...
+
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Length: 7916718
+...
+
+GET /data/data_brotli.parquet HTTP/1.1
+range: bytes=3761389-3826924
+...
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 65536
+Content-Range: bytes 3761389-3826924/3826925
+...
+
+GET /data/data_brotli.parquet HTTP/1.1
+range: bytes=2917485-3825790
+...
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 908306
+...
+
+GET /data/data_brotli.parquet HTTP/1.1
+range: bytes=4-3825790
+...
+
+TTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 3825787

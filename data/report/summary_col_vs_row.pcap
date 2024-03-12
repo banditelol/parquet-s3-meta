@@ -1,0 +1,38 @@
+HEAD /data/data_partial.parquet HTTP/1.1
+...
+
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Length: 3502281
+...
+
+# Get the last 64KB of the file i.e. most probably the Footer containing Metadata
+GET /data/data_partial.parquet HTTP/1.1
+range: bytes=3436745-3502280
+...
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 65536
+Content-Range: bytes 3436745-3502280/3502281
+...
+
+# Get the relevant bytes corresponding to the row group from query `df.select(["email", "job"])`
+GET /data/data_partial.parquet HTTP/1.1
+range: bytes=2679304-3501146
+...
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 821843
+...
+
+# Get all data from the parquet file corresponding to query `df.head(5)`
+GET /data/data_partial.parquet HTTP/1.1
+range: bytes=4-3501146
+...
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 3501143
+Content-Range: bytes 4-3501146/3502281

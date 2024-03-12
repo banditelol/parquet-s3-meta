@@ -1,0 +1,26 @@
+HEAD /data/data.parquet HTTP/1.1
+...
+
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Length: 3502281
+...
+
+GET /data/data.parquet HTTP/1.1
+range: bytes=3436745-3502280
+...
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 65536
+Content-Range: bytes 3436745-3502280/3502281
+...
+
+GET /data/data.parquet HTTP/1.1
+range: bytes=4-3501146
+...
+
+HTTP/1.1 206 Partial Content
+Accept-Ranges: bytes
+Content-Length: 3501143
+...
